@@ -6,6 +6,7 @@ import {
   flexRender,
 } from '@tanstack/react-table';
 import '../index'; // Custom styles for table
+import server from '../environment';
 
 export default function ManagerTable({ userId }) {
   const [transactions, setTransactions] = useState([]);
@@ -13,7 +14,7 @@ export default function ManagerTable({ userId }) {
   useEffect(() => {
     const fetchTransactions = async () => {
       const response = await axios.get(
-        `http://localhost:5000/api/transactions?userId=${userId}`
+        `${server}/api/transactions?userId=${userId}`
       );
       setTransactions(response.data);
     };
@@ -23,7 +24,7 @@ export default function ManagerTable({ userId }) {
   // Function to handle status update for each transaction
   const handleStatusUpdate = async (transactionId, newStatus) => {
     try {
-      await axios.put(`http://localhost:5000/api/transactions/${transactionId}`, {
+      await axios.put(`${server}/api/transactions/${transactionId}`, {
         status: newStatus,
       });
 

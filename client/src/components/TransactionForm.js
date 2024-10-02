@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import server from '../environment';
 
 export default function TransactionForm({ userId }) {
   const [type, setType] = useState('');
@@ -10,7 +11,7 @@ export default function TransactionForm({ userId }) {
     e.preventDefault();
     const newTransaction = { type, amount, description, userId };
 
-    await axios.post('http://localhost:5000/api/transactions', newTransaction);
+    await axios.post(`${server}/api/transactions`, newTransaction);
     setType('');
     setAmount('');
     setDescription('');

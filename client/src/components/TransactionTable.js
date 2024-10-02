@@ -7,13 +7,15 @@ import {
   useReactTable,
   flexRender,
 } from '@tanstack/react-table';
+import server from '../environment';
 
 export default function TransactionTable({ userId }) {
+  console.log(userId)
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
     const fetchTransactions = async () => {
-      const response = await axios.get(`http://localhost:5000/api/transactions?userId=${userId}`);
+      const response = await axios.get(`${server}/api/transactions?userId=${userId}`);
       setTransactions(response.data);
     };
     fetchTransactions();
