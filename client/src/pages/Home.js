@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import server from '../environment';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Home = () => {
         navigate("/login");
       }
       const { data } = await axios.post(
-        "http://localhost:5000",
+        `${server}`,
         {},
         { withCredentials: true }
       );
