@@ -19,7 +19,7 @@ const Home = () => {
         navigate("/login");
       }
       const { data } = await axios.post(
-        `${server}`,
+        `${server}/`,
         {},
         { withCredentials: true }
       );
