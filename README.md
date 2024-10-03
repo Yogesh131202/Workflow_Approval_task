@@ -16,9 +16,6 @@ This project is a **Financial Transaction Submission and Approval System** with 
 - **Approval Workflow**:
   - Managers can approve or reject transactions directly from a table view.
 
-- **Audit Logs**:
-  - Tracks transaction actions (submit, approve, reject) with timestamps and user details.
-
 ## Tech Stack
 
 - **Frontend**: React.js, Tailwind CSS, TanStack Table
@@ -91,10 +88,6 @@ Now you can access the app at \`http://localhost:3000\`.
 - \`GET /api/transactions\`: Retrieve transactions (Employees can view their own, Managers can view all).
 - \`PUT /api/transactions/:id/approve\`: Approve a transaction (Manager).
 - \`PUT /api/transactions/:id/reject\`: Reject a transaction (Manager).
-
-### Audit Logs
-
-- \`GET /api/transactions/:id/audit-log\`: Retrieve audit logs for a specific transaction.
 
 ## Future Enhancements
 
